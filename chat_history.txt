@@ -1,0 +1,35 @@
+---
+
+**Godot Bouncing Ball Notes**
+
+### Code Snippets
+
+```gdscript
+func _process(delta):
+    # Update ball position and velocity
+    velocity += Vector2(0, 100) * delta
+    global_position += velocity
+
+func _physics_process(delta):
+    # Detect collisions with surfaces
+    var collision = move_and_collide(-velocity)
+    if collision:
+        # Apply force in opposite direction to make it bounce
+        velocity.x *= -bounciness
+
+# Draw function example:
+func draw():
+    draw_circle(Vector2.ZERO, 20, Color(0.7, 0.5, 0))
+```
+
+### Functions and Scripts
+
+
+*   `_process()` function updates ball position and velocity.
+*   `_physics_process()` function detects collisions and applies force to bounce.
+*   `draw` function in Godot draws shapes and visuals on screen.
+*   Use `Vector2.ZERO` to represent the origin point (0, 0) in vector math operations.
+*   Utilize `randi_range` function to generate random integers within a specified range.
+*   Employ `randf_range` function to generate random floating-point numbers within a specified range.
+
+---
